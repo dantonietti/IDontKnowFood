@@ -62,10 +62,12 @@
             }
         }
         function searchLocations() {
-         var address = document.getElementById("addressInput").value;
          var geocoder = new google.maps.Geocoder();
-         geocoder.geocode({address: address}, function(results, status) {
+         geocoder.geocode({'address': address}, function(results, status) {
            if (status == google.maps.GeocoderStatus.OK) {
+            var myLatLng = results[0].geometry.location;
+            window.alert("myLatLng");
+
             searchLocationsNear(results[0].geometry.location);
            } else {
              alert(address + ' not found');
@@ -154,6 +156,7 @@
           }
        }
         function doNothing() {}
+
   </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-QunLzWr3VjX9TsVp7WX6VBDNVWq8HI&callback=initMap">
