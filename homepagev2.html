@@ -9,6 +9,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="jquery.js"></script> 
+        <script src="LocationData.js"></script> 
+
         <script> 
             $(function(){
                 $("#includedContent").load("C:\Users\domanto\Documents\HackNC2018\geoTest.html"); 
@@ -80,7 +82,29 @@
 
         <!-- This is where the map will load to -->
         <div id = "includedContent"></div>
-        <body onload="initMap()"></body>
+        <body onload="searchLocation1();"></body>
+        <script type="text/javascript">  
+            var myLat = '';
+            var myLng = '';
+            var userData = new LocationData();
+
+            function searchLocation1() {
+                var geocoder = new google.maps.Geocoder();
+                if(myLat == '' && myLng == ''){
+                    var myLoc = navigator.geolocation.getCurrentPosition(function(position) {
+                    myLat = position.coords.latitude;
+                    myLng = position.coords.longitude;
+                    alert(myLat + " | " + myLng);
+                    userData.latitude = myLat;
+                    userData.longitude = myLng;
+                    });
+                }else{
+                    alert(myLat + " | " + myLng);
+                    alert(userData.latitude + "            " + userData.longitude);
+                }
+
+            }
+        </script>
         <p style="text-align:center">
             <iframe frameborder="0;" style="height:500px; width:500px; margin: auto;" src="map.html"></iframe>
         </p>
@@ -109,21 +133,7 @@
         <div id="container" style="text-align:center">
                 <button class="button" onclick="searchLocation1()" >Click for a food spot</button> 
         </div>
-        <script type="text/javascript">  
-                  
-            function searchLocation1() {
-                var myLatLng = '';
-                var geocoder = new google.maps.Geocoder();
-                var myLoc = navigator.geolocation.getCurrentPosition(function(position) {
-                    alert(position.coords.latitude + " | " + position.coords.longitude);
 
-                });
- 
-
-            }
-            
-            
-        </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF-QunLzWr3VjX9TsVp7WX6VBDNVWq8HI&callback=initMap">
 </script>
