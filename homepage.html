@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+        <script src="jank.js"></script> 
         <script src="jquery.js"></script> 
         
 
@@ -75,11 +75,15 @@
         
         <!-- This is where the map will load to -->
         <div id = "includedContent"></div>
-        <body onload="initMap()"></body>
+        <body onload="searchLocation1();"></body>
+        <script type="text/javascript">  
+            var myLat = '';
+            var myLng = '';
+            var userData = new LocationData();
+        </script>
         <p style="text-align:center">
             <iframe frameborder="0;" style="height:500px; width:500px; margin: auto;" src="map.html"></iframe>
         </p>
-        
 
         <!-- RED slider for range of map -->
         <!--
@@ -131,6 +135,7 @@
             // When the user clicks the button, open the modal 
             btn.onclick = function() {
                 modal.style.display = "block";
+                searchLocation1();
             }
                 
             // When the user clicks on <span> (x), close the modal
