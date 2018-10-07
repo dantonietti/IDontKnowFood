@@ -11,14 +11,39 @@
 </head>
 <body>
     <div id="container" class="jumbotron" style="text-align:center; background-color: brown; color:antiquewhite">
-        <h1>
-            Your Restaurant: <RestaurantInfo class="name"></RestaurantInfo>
-        </h1>
+        <div id="name">
+                <h1>
+                        
+                </h1>
+        </div>
     </div>
+    <hr>
     
-    <div>
+    <div id="descr" style="color:brown; font: size 16px;">
         <h3>Description:</h3> <RestaurantInfo class="rating"></RestaurantInfo>
     </div>
+    <hr>
+    <div id="addr" style="color:brown; font: size 16px;">
+            <h3>Description:</h3> <RestaurantInfo class="rating"></RestaurantInfo>
+        </div>
+        <hr>
+
+
+    <script>
+        var names = ["Sutton's Drug Store", "Mediterranean Deli", "Al's Burger Shack", "Sunrise  Biscuit Kitchen"];
+        var desc = ["Long-running joint dispensing shakes, burgers & deli sandwiches, plus breakfast & vintage sodas.","Mom-&-pop deli offering a range of prepared Mediterranean foods (with kosher options) & baked goods.","Burgers, dogs & shakes are prepared with unique toppings in a snug space with a patio.","No-frills drive-thru window serving sandwiches & country-style biscuits for breakfast & lunch."]
+        var add = ["159 E Franklin St, Chapel Hill, NC 27514", " 410 W Franklin St, Chapel Hill, NC 27516","516 W Franklin St, Chapel Hill, NC 27516","1305 E Franklin St, Chapel Hill, NC 27514"]
+        var rand = Math.floor(Math.random() * 5);
+
+        document.getElementById("name").innerHTML = names[rand];
+        document.getElementById("descr").innerHTML = desc[rand];
+        document.getElementById("addr").innerHTML = add[rand];
+
+        function rand() {
+            rand = Math.floor(Math.random() * 5);
+            
+        }
+    </script>
 
     
     
