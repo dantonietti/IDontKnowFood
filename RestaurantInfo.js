@@ -1,32 +1,22 @@
-class RestaurantInfo {
 
-    constructor(){
-        this.name = name
-        this.rating = rating
-        this.address = address
-    }
 
-    get name(){
-        return this.name
-    }
+function RestaurantInfo(name, address, rating) {
 
-    get rating(){
-        return this.rating
-    }
 
-    get address(){
-        return this.address
-    }
-
-    set address(newAddress) {
-        this.address = newAddress
-    }
-
-    set rating(newRating) {
-        this.rating = newRating
-    }
-
-    set name(newName) {
-        this.name = newName
-    }
+    this.name = name
+    this.address = address
+    this.rating = rating
 }
+
+   
+RestaurantInfo.prototype.getName = function() {
+    return this.latitude;
+};
+RestaurantInfo.prototype.getName = function() {
+    return this.longitude;
+};
+RestaurantInfo.prototype.getName = function() {
+    return this.radius;
+};
+
+module.exports = RestaurantInfo;
