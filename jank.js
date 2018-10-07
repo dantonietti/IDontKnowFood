@@ -1,4 +1,4 @@
-function searchLocation1() {
+export function searchLocation1() {
     if(myLat == '' && myLng == ''){
         var myLoc = navigator.geolocation.getCurrentPosition(function(position) {
         myLat = position.coords.latitude;
@@ -12,6 +12,23 @@ function searchLocation1() {
         alert(myLat + " | " + myLng);
         alert(userData.get(latitude) + "            " + userData.get(longitude));
         return myLat;
+    }
+
+}
+export function searchLocation2() {
+    if(myLat == '' && myLng == ''){
+        var myLoc = navigator.geolocation.getCurrentPosition(function(position) {
+        myLat = position.coords.latitude;
+        myLng = position.coords.longitude;
+        alert(myLat + " | " + myLng);
+        userData.latitude = myLat;
+        userData.longitude = myLng;
+        return myLng;
+        });
+    }else{
+        alert(myLat + " | " + myLng);
+        alert(userData.get(latitude) + "            " + userData.get(longitude));
+        return myLng;
     }
 
 }
